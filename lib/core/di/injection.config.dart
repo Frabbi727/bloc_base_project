@@ -16,7 +16,7 @@ import 'package:bloc_skeleton_project/features/auth/data/datasources/auth_local_
     as _i349;
 import 'package:bloc_skeleton_project/features/auth/data/datasources/auth_remote_data_source.dart'
     as _i332;
-import 'package:bloc_skeleton_project/features/auth/data/repositories/auth_repository_impl.dart'
+import 'package:bloc_skeleton_project/features/auth/data/repositories_impl/auth_repository_impl.dart'
     as _i589;
 import 'package:bloc_skeleton_project/features/auth/domain/repositories/auth_repository.dart'
     as _i586;
