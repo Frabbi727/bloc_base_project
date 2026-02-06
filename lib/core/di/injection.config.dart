@@ -17,7 +17,7 @@ import 'package:bloc_skeleton_project/features/auth/data/datasources/auth_local_
 import 'package:bloc_skeleton_project/features/auth/data/datasources/auth_remote_data_source.dart'
     as _i332;
 import 'package:bloc_skeleton_project/features/auth/data/repositories_impl/auth_repository_impl.dart'
-    as _i589;
+    as _i115;
 import 'package:bloc_skeleton_project/features/auth/domain/repositories/auth_repository.dart'
     as _i586;
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
@@ -49,7 +49,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i349.AuthLocalDataSourceImpl(gh<_i460.SharedPreferences>()),
     );
     gh.lazySingleton<_i586.AuthRepository>(
-      () => _i589.AuthRepositoryImpl(
+      () => _i115.AuthRepositoryImpl(
         gh<_i332.AuthRemoteDataSource>(),
         gh<_i349.AuthLocalDataSource>(),
         gh<_i29.NetworkInfo>(),

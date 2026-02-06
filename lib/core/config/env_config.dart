@@ -35,7 +35,7 @@ class EnvConfig {
   // Staging Environment
   static  EnvConfig staging = EnvConfig(
     environment: Environment.staging,
-    baseUrl: BaseUrl.devBaseUrl,
+    baseUrl: BaseUrl.stagingBaseUrl,
     apiKey: 'staging_api_key_67890',
     connectTimeout: 30000,
     receiveTimeout: 30000,
@@ -46,7 +46,7 @@ class EnvConfig {
   // Production Environment
   static  EnvConfig prod = EnvConfig(
     environment: Environment.prod,
-    baseUrl: BaseUrl.devBaseUrl,
+    baseUrl: BaseUrl.prodBaseUrl,
     apiKey: 'prod_api_key_abcdef',
     connectTimeout: 30000,
     receiveTimeout: 30000,

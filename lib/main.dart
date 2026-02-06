@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           }
         },
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: AppConfig.isInitialized ? AppConfig.appName : 'Flutter Demo',
           navigatorKey: NavigationService.navigatorKey,
           navigatorObservers: [appRouteObserver],

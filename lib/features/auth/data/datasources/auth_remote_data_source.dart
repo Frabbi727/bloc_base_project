@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/constants/api_constants.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/network/dio_client.dart';
+import '../models/auth_response_model.dart';
 import '../models/user_model.dart';
 
 abstract class AuthRemoteDataSource {
@@ -51,9 +52,9 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       throw ServerException('Invalid response');
     }
 
-    final payload = data['data'] ?? data;
-    if (payload is Map<String, dynamic>) {
-      return UserModel.fromJson(payload);
+    if (data['user'] != null && data['token'] != null) {
+      final response = AuthResponseModel.fromJson(data);
+      return response.userWithToken;
     }
 
     throw ServerException('Invalid response');

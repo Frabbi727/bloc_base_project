@@ -5,7 +5,6 @@ import 'package:injectable/injectable.dart';
 import 'injection.config.dart';
 import '../session/session_cubit.dart';
 import '../../features/auth/domain/repositories/auth_repository.dart';
-import '../../features/auth/data/repositories_impl/fake_auth_repository.dart';
 import '../config/app_config.dart';
 
 final getIt = GetIt.instance;
@@ -14,12 +13,6 @@ final getIt = GetIt.instance;
 Future<void> configureDependencies() async {
   // Initialize injectable
   await getIt.init();
-  if (AppConfig.isInitialized && AppConfig.config.isDevelopment) {
-    if (getIt.isRegistered<AuthRepository>()) {
-      await getIt.unregister<AuthRepository>();
-    }
-    getIt.registerLazySingleton<AuthRepository>(FakeAuthRepository.new);
-  }
   if (!getIt.isRegistered<SessionCubit>()) {
     getIt.registerSingleton<SessionCubit>(SessionCubit(getIt<AuthRepository>()));
   }

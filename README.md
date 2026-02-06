@@ -31,6 +31,7 @@ flutter build apk --flavor dev -t lib/main_dev.dart
 flutter build apk --flavor prod -t lib/main_prod.dart
 
 
+dart run build_runner build --delete-conflicting-outputs
 
 project/
 ├── lib/
