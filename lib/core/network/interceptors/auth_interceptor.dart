@@ -3,6 +3,7 @@ import 'package:bloc_skeleton_project/core/di/injection.dart';
 import 'package:bloc_skeleton_project/core/network/dio_client.dart';
 import 'package:bloc_skeleton_project/features/auth/data/datasources/auth_local_data_source.dart';
 import 'package:bloc_skeleton_project/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:bloc_skeleton_project/core/session/session_cubit.dart';
 import 'package:dio/dio.dart';
 
 class AuthInterceptor extends Interceptor {
@@ -86,6 +87,11 @@ class AuthInterceptor extends Interceptor {
   Future<void> _logout() async {
     final localDataSource = getIt<AuthLocalDataSource>();
     await localDataSource.clearCache();
-    // Navigate to login screen
+    if (getIt.isRegistered<SessionCubit>()) {
+      await getIt<SessionCubit>().logout(
+        remote: false,
+        message: 'Session expired. Please log in again.',
+      );
+    }
   }
 }
