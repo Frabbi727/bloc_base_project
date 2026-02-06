@@ -7,7 +7,7 @@ class LoggingInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (AppConfig.enableLogging) {
       developer.log(
-        '🌐 REQUEST[${options.method}] => PATH: ${options.path}\n'
+        '🌐 REQUEST[${options.method}] => PATH: ${options.uri}\n'
             'Headers: ${options.headers}\n'
             'Query Parameters: ${options.queryParameters}\n'
             'Body: ${options.data}',
@@ -21,7 +21,7 @@ class LoggingInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (AppConfig.enableLogging) {
       developer.log(
-        '✅ RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}\n'
+        '✅ RESPONSE[${response.statusCode}] => PATH: ${response.realUri}\n'
             'Data: ${response.data}',
         name: 'API Response',
       );
