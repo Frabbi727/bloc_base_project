@@ -69,4 +69,11 @@ class UserModel {
 
   static String _idFromJson(dynamic id) => id.toString();
   static dynamic _idToJson(String id) => id;
+
+  @override
+  String toString() {
+    return 'UserModel{id: $id, email: $email, name: $name, role: $role, emailVerifiedAt: $emailVerifiedAt, createdAt: $createdAt, updatedAt: $updatedAt, token: $token, refreshToken: $refreshToken}';
+  }
+
+
 }
