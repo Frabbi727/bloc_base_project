@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import '../../domain/entities/page_link.dart';
 
 part 'page_link_model.g.dart';
 
@@ -20,4 +21,13 @@ class PageLinkModel {
       _$PageLinkModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PageLinkModelToJson(this);
+
+  PageLink toEntity() {
+    return PageLink(
+      url: url,
+      label: label,
+      page: page,
+      active: active,
+    );
+  }
 }

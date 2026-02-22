@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import '../../domain/entities/shop.dart';
 
 part 'shop_model.g.dart';
 
@@ -45,4 +46,20 @@ class ShopModel {
   Map<String, dynamic> toJson() => _$ShopModelToJson(this);
 
   static String? _stringOrNull(dynamic value) => value?.toString();
+
+  Shop toEntity() {
+    return Shop(
+      id: id,
+      shopNo: shopNo,
+      ownerName: ownerName,
+      ownerNid: ownerNid,
+      ownerPhone: ownerPhone,
+      sqft: sqft,
+      meterNo: meterNo,
+      isActive: isActive,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      deletedAt: deletedAt,
+    );
+  }
 }

@@ -14,6 +14,9 @@ class ApiConstants {
   static String productDetail(String id) => '/products/$id';
   static const String searchProducts = '/products/search';
 
+  // Dashboard Endpoints
+  static const String shops = '/shops';
+
   // Headers
   static const String authorization = 'Authorization';
   static const String contentType = 'Content-Type';

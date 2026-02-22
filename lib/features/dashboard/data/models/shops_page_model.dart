@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import '../../domain/entities/shops_page.dart';
 import 'page_link_model.dart';
 import 'shop_model.dart';
 
@@ -47,4 +48,22 @@ class ShopsPageModel {
       _$ShopsPageModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ShopsPageModelToJson(this);
+
+  ShopsPage toEntity() {
+    return ShopsPage(
+      currentPage: currentPage,
+      shops: data.map((e) => e.toEntity()).toList(),
+      firstPageUrl: firstPageUrl,
+      from: from,
+      lastPage: lastPage,
+      lastPageUrl: lastPageUrl,
+      links: links.map((e) => e.toEntity()).toList(),
+      nextPageUrl: nextPageUrl,
+      path: path,
+      perPage: perPage,
+      prevPageUrl: prevPageUrl,
+      to: to,
+      total: total,
+    );
+  }
 }
