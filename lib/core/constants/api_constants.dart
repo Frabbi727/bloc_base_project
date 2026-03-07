@@ -17,6 +17,9 @@ class ApiConstants {
   // Dashboard Endpoints
   static const String shops = '/shops';
 
+  // Redding
+  static const String reading= '/readings/month/';
+
   // Headers
   static const String authorization = 'Authorization';
   static const String contentType = 'Content-Type';
