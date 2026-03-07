@@ -1,0 +1,4 @@
+#include "Release.xcconfig"
+FLAVOR = staging
+PRODUCT_BUNDLE_IDENTIFIER = com.example.blocSkeletonProject.staging
+PRODUCT_NAME = MyApp Staging

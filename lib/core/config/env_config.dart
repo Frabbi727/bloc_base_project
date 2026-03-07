@@ -9,6 +9,7 @@ class EnvConfig {
   final int connectTimeout;
   final int receiveTimeout;
   final bool enableLogging;
+  final String appName;
 
   const EnvConfig({
     required this.environment,
@@ -17,6 +18,7 @@ class EnvConfig {
     required this.connectTimeout,
     required this.receiveTimeout,
     required this.enableLogging,
+    required this.appName,
   });
 
   // Development Environment
@@ -27,26 +29,29 @@ class EnvConfig {
     connectTimeout: 30000,
     receiveTimeout: 30000,
     enableLogging: true,
+    appName: 'MyApp Dev',
   );
 
   // Staging Environment
   static  EnvConfig staging = EnvConfig(
     environment: Environment.staging,
-    baseUrl: BaseUrl.devBaseUrl,
+    baseUrl: BaseUrl.stagingBaseUrl,
     apiKey: 'staging_api_key_67890',
     connectTimeout: 30000,
     receiveTimeout: 30000,
     enableLogging: true,
+    appName: 'MyApp Staging',
   );
 
   // Production Environment
   static  EnvConfig prod = EnvConfig(
     environment: Environment.prod,
-    baseUrl: BaseUrl.devBaseUrl,
+    baseUrl: BaseUrl.prodBaseUrl,
     apiKey: 'prod_api_key_abcdef',
     connectTimeout: 30000,
     receiveTimeout: 30000,
     enableLogging: false,
+    appName: 'MyApp',
   );
 
   bool get isDevelopment => environment == Environment.dev;

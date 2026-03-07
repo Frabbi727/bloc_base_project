@@ -1,0 +1,4 @@
+#include "Release.xcconfig"
+FLAVOR = dev
+PRODUCT_BUNDLE_IDENTIFIER = com.example.blocSkeletonProject.dev
+PRODUCT_NAME = MyApp Dev
