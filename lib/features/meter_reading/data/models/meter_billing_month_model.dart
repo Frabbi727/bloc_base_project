@@ -7,11 +7,18 @@ class BillingMonthModel {
   String? name;
   int? month;
   int? year;
+  @JsonKey(name: 'start_date')
+
   DateTime? startDate;
+  @JsonKey(name: 'end_date')
   DateTime? endDate;
   String? status;
   dynamic notes;
+  @JsonKey(name: 'created_at')
+
   DateTime? createdAt;
+  @JsonKey(name: 'updated_at')
+
   DateTime? updatedAt;
 
   BillingMonthModel({

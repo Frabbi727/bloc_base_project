@@ -6,6 +6,8 @@ part 'meter_data_model.g.dart';
 @JsonSerializable(explicitToJson: true)
 
 class MeterDataModel {
+  @JsonKey(name: 'billing_month')
+
   BillingMonthModel? billingMonth;
   List<ReadingModel>? readings;
 
