@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:bloc_skeleton_project/core/database/database.dart' as _i392;
 import 'package:bloc_skeleton_project/core/di/injection.dart' as _i663;
 import 'package:bloc_skeleton_project/core/network/dio_client.dart' as _i238;
 import 'package:bloc_skeleton_project/core/network/network_info.dart' as _i29;
@@ -20,6 +21,8 @@ import 'package:bloc_skeleton_project/features/auth/data/repositories_impl/auth_
     as _i115;
 import 'package:bloc_skeleton_project/features/auth/domain/repositories/auth_repository.dart'
     as _i586;
+import 'package:bloc_skeleton_project/features/dashboard/data/datasources/dashboard_local_data_source.dart'
+    as _i28;
 import 'package:bloc_skeleton_project/features/dashboard/data/datasources/dashboard_remote_data_source.dart'
     as _i64;
 import 'package:bloc_skeleton_project/features/dashboard/data/repositories_impl/dashboard_repository_impl.dart'
@@ -43,8 +46,15 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.sharedPreferences,
       preResolve: true,
     );
+    await gh.factoryAsync<_i392.AppDatabase>(
+      () => registerModule.appDatabase,
+      preResolve: true,
+    );
     gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
     gh.lazySingleton<_i238.DioClient>(() => _i238.DioClient());
+    gh.lazySingleton<_i28.DashboardLocalDataSource>(
+      () => _i28.DashboardLocalDataSourceImpl(gh<_i392.AppDatabase>()),
+    );
     gh.lazySingleton<_i29.NetworkInfo>(
       () => _i29.NetworkInfoImpl(gh<_i895.Connectivity>()),
     );
@@ -65,8 +75,10 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.lazySingleton<_i164.DashboardRepository>(
-      () =>
-          _i1047.DashboardRepositoryImpl(gh<_i64.DashboardRemoteDataSource>()),
+      () => _i1047.DashboardRepositoryImpl(
+        gh<_i64.DashboardRemoteDataSource>(),
+        gh<_i28.DashboardLocalDataSource>(),
+      ),
     );
     return this;
   }
