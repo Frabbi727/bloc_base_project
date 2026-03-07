@@ -15,6 +15,7 @@ class DashboardRepositoryImpl implements DashboardRepository {
   final DashboardRemoteDataSource remoteDataSource;
   final DashboardLocalDataSource localDataSource;
 
+
   DashboardRepositoryImpl(this.remoteDataSource, this.localDataSource);
 
   @override
