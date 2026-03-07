@@ -13,7 +13,7 @@ class DioClient {
   DioClient() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: AppConfig.baseUrl,
+        baseUrl: AppConfig.baseUrl.trim(),
         connectTimeout: Duration(milliseconds: AppConfig.config.connectTimeout),
         receiveTimeout: Duration(milliseconds: AppConfig.config.receiveTimeout),
         headers: {
